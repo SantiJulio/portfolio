@@ -543,14 +543,15 @@ footer p {
     justify-content: center; /* Centra los botones horizontalmente */
     align-items: center;     /* Centra los botones verticalmente */
     gap: 1.5rem;             /* Mantiene la separación entre botones */
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     flex-wrap: wrap;         /* Permite que se acomoden si no entran en la pantalla */
-    max-width: 500px;        /* Achica el contenedor para forzar al botón de CV a irse abajo */
-    margin-left: auto;       /* Centra todo el contenedor en la pantalla */
-    margin-right: auto;      /* Centra todo el contenedor en la pantalla */
 }
 
-/* Botón personalizado de color verde para WhatsApp */
+.cv-contenedor {
+    margin-bottom: 4rem; /* Mantiene la separación con los créditos */
+    text-align: center;
+}
+
 .btn-whatsapp {
     background-color: #25d366;
     color: #ffffff;
