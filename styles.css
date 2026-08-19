@@ -547,6 +547,11 @@ footer p {
     flex-wrap: wrap;         /* Permite que se acomoden si no entran en la pantalla */
 }
 
+.contacto-links .btn {
+    min-width: 120px;
+    text-align: center;
+}
+
 .cv-contenedor {
     margin-bottom: 4rem; /* Mantiene la separación con los créditos */
     text-align: center;
