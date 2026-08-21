@@ -621,76 +621,63 @@ footer p {
 }
 
 /* ==========================================================================
-   10. ESTILOS DEL CARRUSEL DE CERTIFICADOS (ANIMACIÓN Y BOTONES)
+   10. ESTILOS DEL CARRUSEL CON DESLIZAMIENTO LATERAL Y FLECHAS LIMPIAS
    ========================================================================== */
 .carrusel-contenedor {
     position: relative;
     max-width: 1200px;
     margin: 0 auto 4rem auto;
-    overflow: hidden; /* Evita que el slide que está oculto desborde la pantalla */
+    overflow: hidden; /* Corta los certificados que quedan por fuera del ancho */
 }
 
-.carrusel-slides {
-    position: relative;
-    width: 100%;
-    min-height: 400px; /* Asegura un espacio estable para que la web no salte */
+/* El riel que se desplaza horizontalmente usando transformaciones de coordenadas */
+.carrusel-track {
+    display: flex;
+    width: 200%; /* Al tener 2 certificados, el riel mide el doble del contenedor */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Curva de movimiento fluida */
 }
 
-/* Estructura base de cada slide */
+/* Cada slide ocupa exactamente el ancho total del contenedor principal */
 .certificado-slide {
-    display: none; /* Oculta todos los certificados por defecto */
-    width: 100%;
+    width: 50%; /* Cada uno toma la mitad del riel del 200% (o sea, el 100% de la pantalla) */
+    flex-shrink: 0;
 }
 
-/* Clase que activa el JavaScript para mostrar el certificado actual */
-.certificado-slide.active {
-    display: block;
-    animation: desvanecer 0.6s ease-in-out; /* Animación suave al cambiar */
-}
-
-/* Evita que las tarjetas del carrusel repitan márgenes innecesarios */
 .certificado-slide .certificado-principal-card {
-    margin-bottom: 0; 
+    margin-bottom: 0;
+    padding: 2.5rem 4rem; /* Agregamos más padding a los costados para alejar el texto de las flechas */
 }
 
-/* Efecto visual de transición (Fade In) */
-@keyframes desvanecer {
-    from { opacity: 0; transform: scale(0.99); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Botones flotantes (Flechas Izquierda y Derecha) */
+/* Flechas Flotantes Minimalistas (Limpias y sin círculos de fondo) */
 .carrusel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(148, 163, 184, 0.2);
-    color: var(--texto-blanco);
-    font-size: 1.5rem;
-    padding: 1rem 1.2rem;
+    background: none; /* Eliminamos por completo el fondo gris circular */
+    border: none;     /* Sin bordes duros */
+    color: var(--texto-gris);
+    font-size: 2rem;   /* Flecha estilizada y fina */
+    padding: 1rem;
     cursor: pointer;
-    border-radius: 50%;
     z-index: 10;
     transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
 }
 
+/* Resalte en azul Google Cloud al pasar el mouse por encima */
 .carrusel-btn:hover {
-    background-color: var(--azul-electrico);
-    border-color: var(--azul-electrico);
-    transform: translateY(-50%) scale(1.1);
+    color: var(--azul-electrico);
+    transform: translateY(-50%) scale(1.2); /* Crece sutilmente de tamaño */
 }
 
-.prev-btn { left: 1rem; }
-.next-btn { right: 1rem; }
+.prev-btn { left: 0.5rem; }
+.next-btn { right: 0.5rem; }
 
-/* Oculta las flechas en celulares para que no tapen el texto */
+/* Responsive para dispositivos móviles */
 @media (max-width: 900px) {
     .carrusel-btn {
-        display: none;
+        display: none; /* Sigue ocultando las flechas en celulares para priorizar el texto */
     }
-    .carrusel-slides {
-        min-height: 550px; /* Más espacio vertical para el texto apilado en móviles */
+    .certificado-slide .certificado-principal-card {
+        padding: 2rem 1.5rem;
     }
 }

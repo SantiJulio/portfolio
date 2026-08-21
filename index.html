@@ -74,10 +74,10 @@
         <div class="carrusel-contenedor">
             
             <!-- Contenedor Deslizante -->
-            <div class="carrusel-slides">
+            <div class="carrusel-track">
                 
                 <!-- Certificado 1: Foundations -->
-                <div class="certificado-slide active">
+                <div class="certificado-slide">
                     <div class="certificado-principal-card">
                         <div class="certificado-badge-container">
                             <img src="./images/google-cloud-computing-foundations-certificate.png" alt="Google Cloud Computing Foundations Certificate" class="escudo-certificado">
@@ -313,43 +313,39 @@
         </div>
     </footer>
 
-    <!-- 🧠 LÓGICA DEL CARRUSEL AUTOMÁTICO (JAVASCRIPT) -->
+    <!-- 🧠 LÓGICA DEL CARRUSEL HORIZONTAL (JAVASCRIPT) -->
     <script>
-        // Seleccionamos todos los slides y los botones del DOM
-        const slides = document.querySelectorAll('.certificado-slide');
+        const track = document.querySelector('.carrusel-track');
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
+        const totalSlides = document.querySelectorAll('.certificado-slide').length;
         let indexActual = 0;
         let temporizadorAuto;
 
-        // Función core para alternar las clases de visibilidad
-        function mostrarSlide(index) {
-            // Removemos la clase activa del certificado que se estaba mostrando
-            slides[indexActual].classList.remove('active');
+        function desplazarCarrusel(index) {
+            // Controlamos los límites de la cinta
+            indexActual = (index + totalSlides) % totalSlides;
             
-            // Actualizamos el índice controlando los límites estructurales del array
-            indexActual = (index + slides.length) % slides.length;
+            // Calculamos el porcentaje exacto de desplazamiento hacia la izquierda
+            const desplazamiento = indexActual * -50; // -50% mueve la cinta al segundo certificado
             
-            // Añadimos la clase activa al nuevo certificado
-            slides[indexActual].classList.add('active');
+            // Aplicamos la propiedad CSS transform de forma dinámica
+            track.style.transform = `translateX(${desplazamiento}%)`;
             
-            // Reiniciamos el segundero automático para evitar saltos bruscos al hacer clic manual
+            // Reiniciamos el reloj para evitar colisiones
             iniciarRotacionAutomatica();
         }
 
-        // Lógica de automatización temporal (Cambio cada 4 segundos)
         function iniciarRotacionAutomatica() {
             clearInterval(temporizadorAuto);
             temporizadorAuto = setInterval(() => {
-                mostrarSlide(indexActual + 1);
-            }, 4000); // 4000 milisegundos = 4 segundos
+                desplazarCarrusel(indexActual + 1);
+            }, 5000); // 5 segundos para dar una lectura cómoda al texto largo
         }
 
-        // Listeners interactivos para los clics en las flechas laterales
-        nextBtn.addEventListener('click', () => mostrarSlide(indexActual + 1));
-        prevBtn.addEventListener('click', () => mostrarSlide(indexActual - 1));
+        nextBtn.addEventListener('click', () => desplazarCarrusel(indexActual + 1));
+        prevBtn.addEventListener('click', () => desplazarCarrusel(indexActual - 1));
 
-        // Inicializamos los motores del carrusel al cargar la página
         iniciarRotacionAutomatica();
     </script>
 </body>
