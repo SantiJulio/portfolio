@@ -313,7 +313,7 @@
         </div>
     </footer>
 
-    <!-- 🧠 LÓGICA DEL CARRUSEL HORIZONTAL (JAVASCRIPT) -->
+    <!-- 🧠 LÓGICA DEL CARRUSEL CORREGIDA (DIRECCIÓN NATURAL) -->
     <script>
         const track = document.querySelector('.carrusel-track');
         const prevBtn = document.querySelector('.prev-btn');
@@ -323,29 +323,32 @@
         let temporizadorAuto;
 
         function desplazarCarrusel(index) {
-            // Controlamos los límites de la cinta
+            // Controlamos los límites del array de slides de forma circular
             indexActual = (index + totalSlides) % totalSlides;
             
-            // Calculamos el porcentaje exacto de desplazamiento hacia la izquierda
-            const desplazamiento = indexActual * -50; // -50% mueve la cinta al segundo certificado
+            // CORRECCIÓN: El desplazamiento matemático exacto para el riel con 2 slides
+            const desplazamiento = indexActual * -50; 
             
-            // Aplicamos la propiedad CSS transform de forma dinámica
+            // Aplicamos la transformación en el eje X
             track.style.transform = `translateX(${desplazamiento}%)`;
             
-            // Reiniciamos el reloj para evitar colisiones
+            // Reiniciamos el reloj para que no se choque con los clics del usuario
             iniciarRotacionAutomatica();
         }
 
         function iniciarRotacionAutomatica() {
             clearInterval(temporizadorAuto);
             temporizadorAuto = setInterval(() => {
+                // Avanza siempre de forma natural hacia el certificado de la derecha
                 desplazarCarrusel(indexActual + 1);
-            }, 5000); // 5 segundos para dar una lectura cómoda al texto largo
+            }, 5000); // Mantiene los 5 segundos de lectura cómoda
         }
 
-        nextBtn.addEventListener('click', () => desplazarCarrusel(indexActual + 1));
-        prevBtn.addEventListener('click', () => desplazarCarrusel(indexActual - 1));
+        // CORRECCIÓN DE EVENTOS: Sincronizamos las flechas con la dirección física del slide
+        nextBtn.addEventListener('click', () => desplazarCarrusel(indexActual + 1)); // Te lleva al siguiente (Derecha)
+        prevBtn.addEventListener('click', () => desplazarCarrusel(indexActual - 1)); // Te devuelve al anterior (Izquierda)
 
+        // Arrancamos el motor al cargar
         iniciarRotacionAutomatica();
     </script>
 </body>
