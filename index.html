@@ -32,7 +32,7 @@
         </div>
     </section>
 
-        <!-- Sección Sobre Mí -->
+    <!-- Sección Sobre Mí -->
     <section id="sobre-mi" class="seccion-contenedor">
         <div class="contenido-bloque">
             <h2 class="titulo-seccion">Sobre Mí</h2>
@@ -66,29 +66,61 @@
         </div>
     </section>
 
-        <!-- Sección Certificaciones -->
+    <!-- Sección Certificaciones -->
     <section id="certificaciones" class="seccion-contenedor backend-cloud">
         <h2 class="titulo-seccion">Certificaciones & Logros Cloud</h2>
         
-        <!-- 🏆 Certificado Principal Destacado -->
-        <div class="certificado-principal-card">
-            <div class="certificado-badge-container">
-                <!-- Usamos el escudo oficial blanco que ganaste en Credly -->
-                <img src="./images/google-cloud-computing-foundations-certificate.png" alt="Google Cloud Computing Foundations Certificate" class="escudo-certificado">
+        <!-- 🏆 Carrusel de Certificados de Ruta Completa -->
+        <div class="carrusel-contenedor">
+            
+            <!-- Contenedor Deslizante -->
+            <div class="carrusel-slides">
+                
+                <!-- Certificado 1: Foundations -->
+                <div class="certificado-slide active">
+                    <div class="certificado-principal-card">
+                        <div class="certificado-badge-container">
+                            <img src="./images/google-cloud-computing-foundations-certificate.png" alt="Google Cloud Computing Foundations Certificate" class="escudo-certificado">
+                        </div>
+                        <div class="certificado-info">
+                            <span class="tag-programa">PROGRAMA COMPLETO DE RUTA</span>
+                            <h3>Google Cloud Computing Foundations Certificate</h3>
+                            <p class="emisor">Emitido por: <strong>Google</strong> • Validado en Credly</p>
+                            <p class="descripcion-cert">
+                                Certificación de ingeniería que valida competencias prácticas en la creación de infraestructura en la nube, administración de servidores virtuales (Compute Engine), almacenamiento seguro (Cloud Storage), despliegue de redes seguras, balanceo de carga (Load Balancing) y automatización mediante APIs de Inteligencia Artificial.
+                            </p>
+                            <a href="https://www.credly.com/badges/103b96a2-5a36-4c11-9814-17a4dc659e8e" target="_blank" class="btn btn-primary btn-sm">Verificar Credencial Oficial</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificado 2: Data Analytics -->
+                <div class="certificado-slide">
+                    <div class="certificado-principal-card">
+                        <div class="certificado-badge-container">
+                            <img src="./images/google-cloud-data-analytics-certificate.png" alt="Google Cloud Data Analytics Certificate" class="escudo-certificado">
+                        </div>
+                        <div class="certificado-info">
+                            <span class="tag-programa">ESPECIALIZACIÓN EN INGENIERÍA DE DATOS</span>
+                            <h3>Google Cloud Data Analytics Certificate</h3>
+                            <p class="emisor">Emitido por: <strong>Google</strong> • Validado en Credly</p>
+                            <p class="descripcion-cert">
+                                Especialización avanzada que certifica la capacidad para diseñar y optimizar ecosistemas de datos masivos. Cubre procesos ETL en la nube, almacenamiento seguro de información relacional, limpieza y transformación algorítmica de Big Data, automatización de consultas analíticas complejas y narración visual orientada al negocio.
+                            </p>
+                            <a href="https://www.credly.com/earner/earned/badge/00f7ec81-b180-43e3-ac6c-8f050c5c5b26" target="_blank" class="btn btn-primary btn-sm">Verificar Credencial Oficial</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="certificado-info">
-                <span class="tag-programa">PROGRAMA COMPLETO DE RUTA</span>
-                <h3>Google Cloud Computing Foundations Certificate</h3>
-                <p class="emisor">Emitido por: <strong>Google</strong> • Validado en Credly</p>
-                <p class="descripcion-cert">
-                    Certificación de ingeniería que valida competencias prácticas en la creación de infraestructura en la nube, administración de servidores virtuales (Compute Engine), almacenamiento seguro (Cloud Storage), despliegue de redes seguras, balanceo de carga (Load Balancing) y automatización mediante APIs de Inteligencia Artificial.
-                </p>
-                <a href="https://www.credly.com/badges/103b96a2-5a36-4c11-9814-17a4dc659e8e" target="_blank" class="btn btn-primary btn-sm">Verificar Credencial Oficial</a>
-            </div>
+
+            <!-- Botones de Navegación del Carrusel -->
+            <button class="carrusel-btn prev-btn">&#10094;</button>
+            <button class="carrusel-btn next-btn">&#10095;</button>
         </div>
 
         <!-- 🏅 Grilla de Insignias de Habilidad -->
-        <h3 class="subtitulo-internas">Insignias de Habilidad de Google Cloud (16)</h3>
+        <h3 class="subtitulo-internas">Insignias de Habilidad de Google Cloud (19)</h3>
         <div class="insignias-grid">
             
             <!-- Medalla 1 -->
@@ -186,6 +218,24 @@
                 <img src="./images/prepare-data-for-ml.png" alt="Prepare Data for ML APIs">
                 <h4>Prepare Data for ML APIs on Google Cloud</h4>
             </a>
+
+             <!-- Medalla 17 -->
+            <a href="https://www.skills.google/public_profiles/6a0a8aa4-c0c7-4e39-9f49-20caefcc46a9" target="_blank" class="insignia-card">
+                <img src="./images/data-analytics-course-three.png" alt="Data Transformation in the Cloud">
+                <h4>Data Transformation in the Cloud</h4>
+            </a>
+
+            <!-- Medalla 18 -->
+            <a href="https://www.skills.google/public_profiles/6a0a8aa4-c0c7-4e39-9f49-20caefcc46a9" target="_blank" class="insignia-card">
+                <img src="./images/data-analytics-course-four.png" alt="The Power of Storytelling">
+                <h4>The Power of Storytelling: Visualizing Data</h4>
+            </a>
+
+            <!-- Medalla 19 -->
+            <a href="https://www.skills.google/public_profiles/6a0a8aa4-c0c7-4e39-9f49-20caefcc46a9" target="_blank" class="insignia-card">
+                <img src="./images/data-analytics-course-five.png" alt="From Data to Insights">
+                <h4>From Data to Insights: Capstone Project</h4>
+            </a>
         </div>
     </section>
 
@@ -262,5 +312,45 @@
             </div>
         </div>
     </footer>
+
+    <!-- 🧠 LÓGICA DEL CARRUSEL AUTOMÁTICO (JAVASCRIPT) -->
+    <script>
+        // Seleccionamos todos los slides y los botones del DOM
+        const slides = document.querySelectorAll('.certificado-slide');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let indexActual = 0;
+        let temporizadorAuto;
+
+        // Función core para alternar las clases de visibilidad
+        function mostrarSlide(index) {
+            // Removemos la clase activa del certificado que se estaba mostrando
+            slides[indexActual].classList.remove('active');
+            
+            // Actualizamos el índice controlando los límites estructurales del array
+            indexActual = (index + slides.length) % slides.length;
+            
+            // Añadimos la clase activa al nuevo certificado
+            slides[indexActual].classList.add('active');
+            
+            // Reiniciamos el segundero automático para evitar saltos bruscos al hacer clic manual
+            iniciarRotacionAutomatica();
+        }
+
+        // Lógica de automatización temporal (Cambio cada 4 segundos)
+        function iniciarRotacionAutomatica() {
+            clearInterval(temporizadorAuto);
+            temporizadorAuto = setInterval(() => {
+                mostrarSlide(indexActual + 1);
+            }, 4000); // 4000 milisegundos = 4 segundos
+        }
+
+        // Listeners interactivos para los clics en las flechas laterales
+        nextBtn.addEventListener('click', () => mostrarSlide(indexActual + 1));
+        prevBtn.addEventListener('click', () => mostrarSlide(indexActual - 1));
+
+        // Inicializamos los motores del carrusel al cargar la página
+        iniciarRotacionAutomatica();
+    </script>
 </body>
 </html>

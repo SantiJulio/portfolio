@@ -619,3 +619,78 @@ footer p {
     color: var(--texto-blanco); /* El texto pasa a blanco en el hover */
     transform: translateY(-2px);
 }
+
+/* ==========================================================================
+   10. ESTILOS DEL CARRUSEL DE CERTIFICADOS (ANIMACIÓN Y BOTONES)
+   ========================================================================== */
+.carrusel-contenedor {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto 4rem auto;
+    overflow: hidden; /* Evita que el slide que está oculto desborde la pantalla */
+}
+
+.carrusel-slides {
+    position: relative;
+    width: 100%;
+    min-height: 400px; /* Asegura un espacio estable para que la web no salte */
+}
+
+/* Estructura base de cada slide */
+.certificado-slide {
+    display: none; /* Oculta todos los certificados por defecto */
+    width: 100%;
+}
+
+/* Clase que activa el JavaScript para mostrar el certificado actual */
+.certificado-slide.active {
+    display: block;
+    animation: desvanecer 0.6s ease-in-out; /* Animación suave al cambiar */
+}
+
+/* Evita que las tarjetas del carrusel repitan márgenes innecesarios */
+.certificado-slide .certificado-principal-card {
+    margin-bottom: 0; 
+}
+
+/* Efecto visual de transición (Fade In) */
+@keyframes desvanecer {
+    from { opacity: 0; transform: scale(0.99); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Botones flotantes (Flechas Izquierda y Derecha) */
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    color: var(--texto-blanco);
+    font-size: 1.5rem;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.carrusel-btn:hover {
+    background-color: var(--azul-electrico);
+    border-color: var(--azul-electrico);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn { left: 1rem; }
+.next-btn { right: 1rem; }
+
+/* Oculta las flechas en celulares para que no tapen el texto */
+@media (max-width: 900px) {
+    .carrusel-btn {
+        display: none;
+    }
+    .carrusel-slides {
+        min-height: 550px; /* Más espacio vertical para el texto apilado en móviles */
+    }
+}
